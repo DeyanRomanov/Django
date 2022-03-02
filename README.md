@@ -6,3 +6,4 @@ Django Basics:
   - [Django Exam Prepare](djangoProject1)
   - [Pestagram](Petstagram)
   - [OnlineLibrary](OnlineLibrary)
+  - [MusicApp](MusicApp)
