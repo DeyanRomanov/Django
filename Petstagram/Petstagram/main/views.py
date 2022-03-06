@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from Petstagram.main.forms import CreateProfile, CreatePet
+from Petstagram.main.forms import CreateProfile, CreatePet, EditProfile
 from Petstagram.main.models import Profile, PetsPhoto, Pet
 from Petstagram.main.templatetags.profiles import has_profile
 
@@ -77,10 +77,13 @@ def create_profile(request):
 
 def add_pet(request):
     if request.method == 'POST':
-        form = CreatePet(request.POST)
+        pet = Pet(user_profile_id=Profile.objects.all()[0].id)
+        form = CreatePet(request.POST, instance=pet)
+
         if form.is_valid():
             form.save()
             return redirect('profile')
+
     form = CreatePet()
     context = {
         'form': form,
@@ -89,24 +92,33 @@ def add_pet(request):
 
 
 def pet_edit(request, pk):
-    return render(request, )
+    return render(request, 'pet_edit.html')
 
 
 def pet_delete(request, pk):
-    return render(request, )
+    return render(request, 'pet_delete.html')
 
 
 def add_photo(request):
-    return render(request, )
+    return render(request, 'photo_create.html')
 
 
 def photo_edit(request, pk):
-    return render(request, )
+    return render(request, 'photo_edit.html')
 
 
 def profile_edit(request):
-    return render(request, )
+    if request.method == 'POST':
+        form = EditProfile(request.POST, instance=Profile.objects.all()[0], initial={'gender': 2})
+        if form.is_valid():
+            form.save()
+            return redirect('profile edit')
+    form = EditProfile(instance=Profile.objects.all()[0])
+    context = {
+        'form': form,
+    }
+    return render(request, 'profile_edit.html', context)
 
 
 def profile_delete(request):
-    return render(request, )
+    return render(request, 'profile_delete.html')
