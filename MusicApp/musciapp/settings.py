@@ -20,7 +20,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e^tas@6sy2-5@a&xsomztyb*e$*ml97tq14k3w0-+f5m)=4s#@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -74,17 +73,6 @@ WSGI_APPLICATION = 'musciapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'musicapp_db',
-        'USER': 'postgres',
-        'PASSWORD': '********',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
 
 
 # Password validation
