@@ -21,7 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-tci0(x!j=!_o)emi+zqfn#mj94ztm&8&vz%_7xermg2awvo2mb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -74,16 +73,6 @@ WSGI_APPLICATION = 'OnlineLibrary.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'library_db',
-        'USER': 'postgres',
-        'PASSWORD': 'Snejieli90@',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
