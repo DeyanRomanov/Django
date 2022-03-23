@@ -7,7 +7,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7ah-l3_%74-4%8uso8e!fywx_d$u5w%616_zi!rxsjzs(9gw#d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -64,17 +63,6 @@ WSGI_APPLICATION = 'Petstagram.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'petstagram',
-        'USER': 'postgres',
-        'PASSWORD': 'Snejieli90@',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
