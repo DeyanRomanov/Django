@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 class='text-center'>
+        {% if pets_photos %}
+            All Pet Photos
+        {% else %}
+            No pet photos yet
+            </h1>
+            <div class=" row d-flex justify-content-center align-content-center">
+                <a href="#" class="btn btn-lg btn-secondary row align-self-baseline">Add Photo</a>
+            </div>
+        {% endif %}
+
+    {% if pets_photos %}
+        <div class="container mb-5">
+            <div class="row mb-5">
+                {% for pets_photo in pets_photos %}
+
+                    <div class="card ml-3 mb-3" style="width: 18rem;">
+                        <img src="{{ pets_photo.photo.url }}"
+                             class="card-img-top" alt="{{ pets_photo.description|truncatechars:30 }}">
+                        <div class="card-body">
+                            {% for pets in pets_photo.tagged.all %}
+                                <h5 class="card-title">{{ pets.name }}
+                                    {% if pets.date_of_bird %}
+                                        , age:{{ pets.years }}
+                                    {% endif %}
+                                </h5>
+                            {% endfor %}
+                            <p class="card-text">{{ pets_photo.description|truncatechars:30 }}</p>
+                            <a href="{% url 'photo_details' pets_photo.id %}" class="btn btn-primary">See details</a>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

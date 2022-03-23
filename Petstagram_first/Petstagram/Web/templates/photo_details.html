@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex">
+    <div class="d-inline p-2 w-50">
+        <img src="{{ photo_details.photo.url }}"
+             class="w-100 rounded mx-auto d-block" alt="{{ photo_details.description }}">
+    </div>
+    <div class="d-inline p-2 w-50">
+        {% for pet in photo_details.tagged.all %}
+        <div class="d-flex justify-content-around">
+            <h5><u>Type:</u> {{ pet.types }}</h5>
+            <h5><u>Name:</u> {{ pet.name }}</h5>
+            {% if pet.date_of_bird %}
+            <h5><u>Age:</u> {{ pet.years }}</h5>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <p class="mt-2">{{ photo_details.description }}</p>
+        <a href="{% url 'like button' photo_details.id %}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+        <p class="mt-2">Likes: {{ photo_details.likes }}</p>
+        <a href="#" class="btn btn-primary">Edit</a>
+        <a href="#" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+
+{% endblock %}
